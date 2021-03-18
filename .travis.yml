@@ -6,4 +6,11 @@ before_install:
   - docker build -t vnadkarni/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run vnadkarni/docker-react npm run test -- --coverage
+  - docker run -e CI=true vnadkarni/docker-react npm run test
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "eu-west-2"
+#   app: "docker-reach"
+#   env: "Dockerreact-env"
+#   bucket_name:
+
